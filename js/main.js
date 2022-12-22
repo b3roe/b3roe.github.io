@@ -1,4 +1,4 @@
-// Elementen formulier ophalen
+// Elementen formulier ophalen 
 const form = document.querySelector("form");
 const functietitelInput = document.querySelector("#functietitel");
 const standplaatsInput = document.querySelector("#standplaats");
