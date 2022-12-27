@@ -7,7 +7,7 @@
 body {
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
 		"Helvetica Neue", sans-serif;
-	font-size: 1rem;
+	font-size: 0.8rem;
 	background-color: #f4f4f4;
 	display: flex;
 	align-items: center;
@@ -46,15 +46,16 @@ body {
 }
 
 .form-row>.col, .form-row>[class*=col-] {
-	padding-left: 15px!important;
-	padding-right: 15px!important;
+	padding-left: 15px;
+	padding-right: 15px;
 }
 
 form {
 	max-width: 1200px;
 	margin: 10px auto;
 	padding: 0.5rem 1rem;
-
+	font-weight: normal;
+	font-family: Calibri, sans-serif;
 }
 
 .form-top {
@@ -67,14 +68,6 @@ form {
 
 .form-large {
 	height: 192px;
-}
-
-form h1 {
-	padding: 5px 0;
-	font-size: 1.4rem;
-	font-weight: normal;
-	text-align: center;
-	color: #111;
 }
 
 /*! form.css v1.0 | MIT License | https://www.javascripttutorial.net/ */
@@ -93,8 +86,8 @@ form h1 {
 
 label {
 	display: inline-block;
-	margin-bottom: 8px;
-	margin-left: 2px;
+	margin-bottom: 2px;
+	margin-left: 0px;
 	vertical-align: top;
 	width: 100%;
 	font-weight: bold;
@@ -125,7 +118,6 @@ select {
 	padding: 0.5rem 0.75rem;
 	width: 100%;
 	font-family: inherit;
-	font-size: 1rem;
 }
 
 input::placeholder {
@@ -147,8 +139,6 @@ select[disabled] {
 	color: #7a7a7a;
 	cursor: not-allowed;
 }
-
-
 
 /* input error */
 input.error,
@@ -178,35 +168,106 @@ select.success {
 }
 
 /* button */
-.button {
-	background: #c41e65;
-	color: #fff;
-	border-radius: 0.25rem;
-	font-size: 1.3rem;
-	font-weight: 400;
-	border: 1px solid #c41e65;
-	transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
-		box-shadow 0.15s ease-in-out;
-	text-align: center;
-	padding: 0.375rem 0.75rem;
-	margin-top: 21px;
-	max-width: 250px;
-	display: block;
-	margin: auto;
-}
-
-.button:hover {
-	background: #c41e65;
-	border-color: #c41e65;
-	cursor: pointer;
-}
-
 .button:focus {
 	outline: none;
 	color: #fff;
 	background-color: #c41e65;
 	border-color: #c41e65;
 	box-shadow: 0 0 0 0.25rem rgba(84, 85, 85, 0.5);
+}
+
+.btn-area {
+	text-align: center;
+	padding-bottom: 20px;
+}
+.btn-primary {
+	text-transform: uppercase;
+	background-color: #264455;
+	border-color: #264455;
+    display: inline-block;
+    font-weight: 500;
+    border: 1px solid transparent;
+    padding: .375rem 1.25rem;
+    font-size: 1rem;
+    line-height: 1.4;
+    border-radius: .15rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.btn-primary:hover {
+	background-color: #ffffff;
+	border-color: #162832;
+	background-color:#1a2f3b;
+	cursor: pointer;
+
+}
+
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+	background-color: #ffffff;
+	border-color: #162832;
+	background-color:#1a2f3b;
+	cursor: pointer;
+}
+
+.btn-primary:active {
+	background-color: #ffffff;
+	border-color: #162832;
+	background-color:#1a2f3b;
+	cursor: pointer;
+}
+
+.btn-primary:focus {
+	background-color: #ffffff;
+	border-color: #162832;
+	background-color:#1a2f3b;
+	cursor: pointer;
+}
+
+.btn-back {
+	padding-top: 20px;
+	padding-left: 30px;
+}
+.btn-secondary {
+	text-transform: lowercase;
+	background-color: #c41e65;
+	border-color: #c41e65;
+    display: inline-block;
+    font-weight: 200;
+    border: 1px solid transparent;
+    padding: .125rem 0.75rem;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    border-radius: .15rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.btn-secondary:hover {
+	background-color: #ffffff;
+	border-color: #891647;
+	background-color:#891647;
+	cursor: pointer;
+
+}
+
+.btn-secondary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+	background-color: #ffffff;
+	border-color: #891647;
+	background-color:#891647;
+	cursor: pointer;
+}
+
+.btn-secondary:active {
+	background-color: #ffffff;
+	border-color: #891647;
+	background-color:#891647;
+	cursor: pointer;
+}
+
+.btn-secondary:focus {
+	background-color: #ffffff;
+	border-color: #891647;
+	background-color:#891647;
+	cursor: pointer;
 }
 
 /* radio  & checkbox*/

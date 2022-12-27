@@ -1,160 +1,22 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">
 	<head>
 		<title>VoorTekst vacaturegenerator</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <script src="https://unpkg.com/docx@7.1.0/build/index.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
-    
-	</head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+		<link rel="stylesheet" href="css/style.css">
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    </head>
+
 	<body>
-    <div id="header" class="header">    
-      <div id="logo" class="logo">
-        <img src="voor-tekst-logo.png" alt="VoorTekst logo" class="logoimg">
-      </div>
-    </div>
-    <div id="content-area" class="content-area">
-      <div id="form" class="form">
-        <form>
-          <div class="form-row">
-            <div class="form-group col-md-4">
-              <div class="form-small">
-                <label for="opdrachtgever">Opdrachtgever:</label>
-                <select id="opdrachtgever" class="inputcss">
-                  <!-- Empty default option -->
-                  <option value="" disabled selected>Selecteer een opdrachtgever</option>
-                  <!-- Options -->
-                  <option value="de Belastingdienst">de Belastingdienst</option>
-                  <option value="de Douane">de Douane</option>
-                  <option value="Toeslagen">Toeslagen</option>
-                </select>
-                <small></small>
-              </div>
-
-              <div class="form-small">
-                <label for="ordernummer">Ordernummer:</label>
-                <input type="text" id="ordernummer" class="inputcss">
-                <small></small>
-              </div>
-
-              <div class="form-small">
-                <label for="contactpersoon">Contactpersoon:</label>
-                <input type="text" id="contactpersoon" class="inputcss">
-                <small></small>
-              </div>
-
-              <div class="form-small">
-                <label for="functietitel">Functietitel:</label>
-                <input type="text" id="functietitel" class="inputcss">
-                <small></small>
-              </div>      
-
-              <div class="form-small">
-                <label for="standplaats">Standplaats:</label>
-                <input type="text" id="standplaats" class="inputcss">
-                <small></small>
-              </div>
-
-              <div class="form-small">
-                <label for="datum">Datum:</label>
-                <input type="text" id="datum"  class="inputcss">
-                <small></small>
-              </div>
-
-              <div class="form-small">
-                <label for="copywriter">Copywriter:</label>
-                <select id="copywriter" class="inputcss">
-                  <!-- Empty default option -->
-                  <option value="" disabled selected>Selecteer een schrijver</option>
-                  <!-- Options -->
-                  <option value="Andrew van Tienoven">Andrew van Tienoven</option>
-                  <option value="Anouk Zichterman">Anouk Zichterman</option>
-                  <option value="Bernd Huisman">Bernd Huisman</option>
-                  <option value="Brenda Post">Brenda Post</option>
-                  <option value="Content Redactie">Content Redactie</option>
-                  <option value="Daphne Smit">Daphne Smit</option>
-                  <option value="Fanny van der Zeijden">Fanny van der Zeijden</option>
-                  <option value="Henk van der Draai">Henk van der Draai</option>
-                  <option value="Jaike Reitsema">Jaike Reitsema</option>
-                  <option value="Kirsten Baarslag">Kirsten Baarslag</option>
-                  <option value="Maria van de Scheur">Maria van de Scheur</option>
-                  <option value="Marouscha Panse-Haak">Marouscha Panse-Haak</option>
-                  <option value="Rylana Nibte">Rylana Nibte</option>
-                  <option value="Sara Schwalb">Sara Schwalb</option>
-                  <option value="Timo Oving-Weusthuis">Timo Oving-Weusthuis</option>
-                </select>
-                <small></small>
-              </div>
-                                   
-              <div class="form-large">
-                <label for="gotw">Goed om te weten:</label>
-                <textarea id="gotw" rows="5" class="inputcss"></textarea>
-                <small></small>
-              </div>
-            </div>
-
-            <div class="form-group col-md-4">
-              <div class="form-large">
-                <label for="intro">Intro:</label>
-                <textarea id="intro" rows="5" class="inputcss"></textarea>
-                <small></small>
-              </div>
-
-              <div class="form-large">
-                <label for="ditdoejebij">Dit doe je bij:</label>
-                <textarea id="ditdoejebij" rows="5" class="inputcss"></textarea>
-                <small></small>
-              </div>
-
-              <div class="form-large">
-                <label for="pullfactoren">Pullfactoren:</label>
-                <textarea id="pullfactoren" rows="5" class="inputcss"></textarea>
-                <small></small>
-              </div>
-            </div>
-            <div class="form-group col-md-4">
-              <div class="form-large">
-                <label for="testquote">Testimonial quote:</label>
-                <textarea id="testquote" rows="5" class="inputcss"></textarea>
-                <small></small>
-              </div>
-
-              <div class="form-small">
-                <label for="testnaam">Testimonial naam:</label>
-                <input type="text" id="testnaam" class="inputcss">
-                <small></small>
-              </div>
-              
-              <div class="form-small">
-                <label for="testfunctie">Testimonial functie:</label>
-                <input type="text" id="testfunctie" class="inputcss">
-                <small></small>
-              </div>
-
-              <div class="form-large">
-                <label for="functieeisen">Functie-eisen:</label>
-                <textarea id="functieeisen" rows="5" class="inputcss"></textarea>
-                <small></small>
-              </div>
-
-              <div class="form-large">
-                <label for="competenties">Competenties:</label>
-                <textarea id="competenties" rows="5" class="inputcss"></textarea>
-                <small></small>
-              </div>
-            </div>
+        <div id="header" class="header">    
+          <div id="logo" class="logo">
+            <img src="voor-tekst-logo.png" alt="VoorTekst logo" class="logoimg">
           </div>
+        </div>
+        <div id="content-area" class="content-area">
 
-              <input type="button" onclick="generate()" value="Genereer" class="button">
-        </form>
-      </div>
-    </div>
-    <div id="preview"></div>
-
-    <script src="js/main.js"></script>
-    <script src="js/import.js"></script>
-
-</body>
-</html>
+                <a href="ubr.html" class="btn btn-primary btn-rounded">UBR</a>
+                <a href="bd.html" class="btn btn-primary btn-rounded">Belastingdienst</a>
+                
+        </div>
