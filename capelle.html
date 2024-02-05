@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<title>VoorTekst vacaturegenerator</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		<link rel="stylesheet" href="css/style.css">
 	</head>
@@ -15,140 +15,357 @@
     <div id="content-area" class="content-area">
       <div class="btn-back">
         <a href="index.html" class="btn btn-secondary btn-rounded">Terug</a>
-    </div>
-
-      <div id="form" class="form">
-        <form>
-          <div class="form-row">
-            <div class="form-group col-md-4">
-              <div class="form-small">
-                <label for="opdrachtgever">Opdrachtgever:</label>
-                <select id="opdrachtgever" class="inputcss">
-                  <!-- Empty default option -->
-                  <option value="" disabled selected>Selecteer een opdrachtgever</option>
-                  <!-- Options -->
-                  <option value="de Belastingdienst">de Belastingdienst</option>
-                  <option value="de Douane">de Douane</option>
-                  <option value="Toeslagen">Toeslagen</option>
-                </select>
-                <small></small>
+      </div>
+      <div class="container-fluid">
+        <div id="form" class="form">
+          <form>
+            <div class="form-row" id="Titel, afdeling, sector">
+              <div class="form-col">
+                <label for="sector">Kies sector van functie:</label>
+                  <select id="sector" class="inputcss">
+                    <!-- Empty default option -->
+                      <option value="" disabled selected></option>
+                    <!-- Options -->
+                      <option value="Stadsbeheer">Stadsbeheer</option>
+                      <option value="Stadsontwikkeling">Stadsontwikkeling</option>
+                      <option value="Voor de samenleving">Voor de samenleving</option>
+                      <option value="Bestuurs- en concernondersteuning">Bestuurs- en concernondersteuning</option>
+                      <option value="Dienstverlening">Dienstverlening</option>
+                      <option value="Financiën">Financiën</option>
+                  </select>
+                  <small></small>
               </div>
-
-              <div class="form-small">
-                <label for="ordernummer" data-toggle="tooltip" title="Gebruik alleen cijfers">Ordernummer:</label>
-                <input type="text" id="ordernummer" class="inputcss">
-                <small></small>
+              <div class="form-col">
+                <label for="functietitel" data-toggle="tooltip" title="">Functietitel:</label>
+                  <input type="text" id="functietitel" class="inputcss">
+                  <small></small>
               </div>
-
-              <div class="form-small">
-                <label for="contactpersoon">Contactpersoon:</label>
-                <input type="text" id="contactpersoon" class="inputcss">
-                <small></small>
-              </div>
-
-              <div class="form-small">
-                <label for="functietitel">Functietitel:</label>
-                <input type="text" id="functietitel" class="inputcss">
-                <small></small>
-              </div>      
-
-              <div class="form-small">
-                <label for="standplaats">Standplaats:</label>
-                <input type="text" id="standplaats" class="inputcss">
-                <small></small>
-              </div>
-
-              <div class="form-small">
-                <label for="datum">Datum:</label>
-                <input type="text" id="datum"  class="inputcss">
-                <small></small>
-              </div>
-
-              <div class="form-small">
-                <label for="copywriter">Copywriter:</label>
-                <select id="copywriter" class="inputcss">
-                  <!-- Empty default option -->
-                  <option value="" disabled selected>Selecteer een schrijver</option>
-                  <!-- Options -->
-                  <option value="Andrew van Tienoven">Andrew van Tienoven</option>
-                  <option value="Anouk Zichterman">Anouk Zichterman</option>
-                  <option value="Bernd Huisman">Bernd Huisman</option>
-                  <option value="Brenda Post">Brenda Post</option>
-                  <option value="Content Redactie">Content Redactie</option>
-                  <option value="Daphne Smit">Daphne Smit</option>
-                  <option value="Fanny van der Zeijden">Fanny van der Zeijden</option>
-                  <option value="Henk van der Draai">Henk van der Draai</option>
-                  <option value="Jaike Reitsema">Jaike Reitsema</option>
-                  <option value="Kirsten Baarslag">Kirsten Baarslag</option>
-                  <option value="Maria van de Scheur">Maria van de Scheur</option>
-                  <option value="Marouscha Panse-Haak">Marouscha Panse-Haak</option>
-                  <option value="Rylana Nibte">Rylana Nibte</option>
-                  <option value="Sara Schwalb">Sara Schwalb</option>
-                  <option value="Timo Oving-Weusthuis">Timo Oving-Weusthuis</option>
-                </select>
-                <small></small>
-              </div>
-                                   
-              <div class="form-large">
-                <label for="gotw">Goed om te weten:</label>
-                <textarea id="gotw" rows="5" class="inputcss"></textarea>
+              <div class="form-col">
+                <label for="afdeling" data-toggle="tooltip" title="">Afdeling:</label>
+                  <input type="text" id="afdeling" class="inputcss">
                 <small></small>
               </div>
             </div>
-
-            <div class="form-group col-md-4">
-              <div class="form-large">
+      
+            <div class="form-row" id="Intro en taken">
+              <div class="form-col">
                 <label for="intro">Intro:</label>
-                <textarea id="intro" rows="5" class="inputcss"></textarea>
+                  <textarea id="intro" rows="5" class="inputcss"></textarea>
                 <small></small>
               </div>
-
-              <div class="form-large">
-                <label for="ditdoejebij">Dit doe je bij:</label>
-                <textarea id="ditdoejebij" rows="5" class="inputcss"></textarea>
+              <div class="form-col">
+                <label for="hoofdtaak">Hoofdtaak van de functie:</label>
+                  <textarea id="hoofdtaak" rows="5" class="inputcss"></textarea>
                 <small></small>
               </div>
-
-              <div class="form-large">
-                <label for="pullfactoren">Pullfactoren:</label>
-                <textarea id="pullfactoren" rows="5" class="inputcss"></textarea>
-                <small></small>
-              </div>
-            </div>
-            <div class="form-group col-md-4">
-              <div class="form-large">
-                <label for="testquote">Testimonial quote:</label>
-                <textarea id="testquote" rows="5" class="inputcss"></textarea>
-                <small></small>
-              </div>
-
-              <div class="form-small">
-                <label for="testnaam">Testimonial naam:</label>
-                <input type="text" id="testnaam" class="inputcss">
-                <small></small>
-              </div>
-              
-              <div class="form-small">
-                <label for="testfunctie">Testimonial functie:</label>
-                <input type="text" id="testfunctie" class="inputcss">
-                <small></small>
-              </div>
-
-              <div class="form-large">
-                <label for="functieeisen">Functie-eisen:</label>
-                <textarea id="functieeisen" rows="5" class="inputcss"></textarea>
-                <small></small>
-              </div>
-
-              <div class="form-large">
-                <label for="competenties">Competenties:</label>
-                <textarea id="competenties" rows="5" class="inputcss"></textarea>
+              <div class="form-col">
+                <label for="deeltaken">Deeltaken van de functie:</label>
+                  <textarea id="deeltaken" rows="5" class="inputcss"></textarea>
                 <small></small>
               </div>
             </div>
-          </div>
-        </form>
-       </div>
+            
+            <div class="form-row" id="Functie keuzeteksten">
+              <div class="form-col">
+                <label for="ktfi1">Functie-inhoud keuzetekst 1:</label>
+                  <select id="ktfi1" class="inputcss">
+                      <!-- Empty default option -->
+                      <option value="" disabled selected></option>
+                      <!-- Options -->
+                      <option value="een duurzame ontwikkeling van de stad">een duurzame ontwikkelings van de stad</option>
+                      <option value="een positieve invloed op het leven van de Capellenaren">een positieve invloed op het leven van de Capellenaren</option>
+                      <option value="een omgeving waarin iedere Capellenaar kan meedoen">een omgeving waarin iedere Capellenaar kan meedoen</option>
+                      <option value="een passende en vernieuwende dienstverlening">een passende en vernieuwende dienstverlening</option>
+                      <option value="een toegankelijke en open gemeente">een toegankelijke en open gemeente</option>
+                  </select>
+                <small></small>
+              </div>
+              <div class="form-col">
+                <label for="ktfi2">Functie-inhoud keuzetekst 2:</label>
+                  <select id="ktfi2" class="inputcss">
+                      <!-- Empty default option -->
+                      <option value="" disabled selected></option>
+                      <!-- Options -->
+                    </select>
+                <small></small>
+              </div>
+            </div>
+            
+            <div class="form-row" id="Over Capelle keuzeteksten">
+              <div class="form-col">
+                <label for="capellebullets1">Over Capelle keuzetekst 1:</label>
+                  <select id="capellebullets1" class="inputcss">
+                      <!-- Empty default option -->
+                      <option value="" disabled selected></option>
+                      <!-- Options -->
+                      <option value="we bereikbaar zijn voor alle Capellenaren?">we bereikbaar zijn voor alle Capellenaren?</option>
+                      <option value="we een transparante en integere organisatie zijn die initiatieven aanmoedigt?">we een transparante en integere organisatie zijn die initiatieven aanmoedigt?</option>
+                      <option value="lef en daadkracht ons onderscheiden?">lef en daadkracht ons onderscheiden?</option>
+                      <option value="we samenwerken vanzelfsprekend vinden?">we samenwerken vanzelfsprekend vinden?</option>
+                      <option value="vakmanschap en de drive te blijven ontwikkelen ons kenmerkt?">vakmanschap en de drive te blijven ontwikkelen ons kenmerkt?</option>
+                      <option value="bij ons de basis op orde is en innovatie voorop staat?">bij ons de basis op orde is en innovatie voorop staat?</option>
+                      <option value="we een duurzame organisatie zijn?">we een duurzame organisatie zijn?</option>
+                      <option value="onze Dorpskerk meerdere keren is verbouwd?">onze Dorpskerk meerdere keren is verbouwd?</option>
+                      <option value="onze woonplaats in 2022 zo'n 7.465 bedrijfsvestigingen telde?">onze woonplaats in 2022 zo'n 7.465 bedrijfsvestigingen telde?</option>
+                      <option value="we dankzij Slot Capelle het kleinste museum van Nederland hebben?">we dankzij Slot Capelle het kleinste museum van Nederland hebben?</option>
+                      <option value="woonplaats Capelle aan den IJssel een totale oppervlakte heeft van 1.540 hectare, waarvan 1.414 land 126 water?">woonplaats Capelle aan den IJssel een totale oppervlakte heeft van 1.540 hectare, waarvan 1.414 land 126 water?</option>
+                      <option value="wij een aantal rijksmonumenten en een oorlogsmonument hebben?">wij een aantal rijksmonumenten en een oorlogsmonument hebben?</option>
+                      <option value="onze woonplaats in 2022 ruim 35.745 unieke adressen telde?">onze woonplaats in 2022 ruim 35.745 unieke adressen telde?</option>
+                  </select>
+                <small></small>
+              </div>
+              <div class="form-col">
+                <label for="capellebullets2">Over Capelle keuzetekst 2:</label>
+                  <select id="capellebullets2" class="inputcss">
+                      <!-- Empty default option -->
+                      <option value="" disabled selected></option>
+                      <!-- Options -->
+                      <option value="een stadstour in een echte bus vast onderdeel is van ons introductieprogramma?">een stadstour in een echte bus vast onderdeel is van ons introductieprogramma?</option>
+                      <option value="het Schollebos ongeveer 2 kilometer bij ons kantoor vandaan is en we dus áltijd in de buurt zijn van de vrije natuur?">het Schollebos ongeveer 2 kilometer bij ons kantoor vandaan is en we dus áltijd in de buurt zijn van de vrije natuur?</option>
+                      <option value="ons kantoor het mooiste terras heeft van de hele gemeente?">ons kantoor het mooiste terras heeft van de hele gemeente?</option>
+                      <option value="we elk jaar tijdens de vitaliteitsdag in teams tegen elkaar strijden tijdens Expeditie Robinson-achtige proeven?">we elk jaar tijdens de vitaliteitsdag in teams tegen elkaar strijden tijdens Expeditie Robinson-achtige proeven?</option>
+                      <option value="elk jaar minstens 2 leuke evenementen plaatsvinden, zoals 'Capelle Love City' met Valentijnsdag en de intocht van Sinterklaas?">elk jaar minstens 2 leuke evenementen plaatsvinden, zoals 'Capelle Love City' met Valentijnsdag en de intocht van Sinterklaas?</option>               
+                  </select>
+                <small></small>
+              </div>
+            </div>
+            
+            <div class="form-row" id="Collega's en quote">
+              <div class="form-col">
+                <label for="naamcollega1" data-toggle="tooltip" title="">Naam collega 1:</label>
+                  <input type="text" id="naamcollega1" class="inputcss">
+                <small></small>
+              </div>
+              <div class="form-col">
+                <label for="naamcollega2" data-toggle="tooltip" title="">Naam collega 2:</label>
+                  <input type="text" id="naamcollega2" class="inputcss">
+                <small></small>
+              </div>
+              <div class="form-col">
+                <label for="quotecollega">Quote van 1 van de 2 collega's:</label>
+                  <textarea id="quotecollega" rows="5" class="inputcss"></textarea>
+                <small></small>
+              </div>
+            </div>
+      
+            <div class="form-row" id="Afdeling keuzeteksten">
+              <div class="form-col">
+                <label for="ktaf1">Afdeling keuzetekst 1:</label>
+                  <select id="ktaf1" class="inputcss">
+                      <!-- Empty default option -->
+                      <option value="" disabled selected></option>
+                      <!-- Options -->
+                      <option value="Actie ondernemen">Actie ondernemen</option>
+                      <option value="Snel schakelen">Snel schakelen</option>
+                      <option value="Problemen oplossen">Problemen oplossen</option>
+                      <option value="Kennis opbouwen">Kennis opbouwen</option>
+                      <option value="Betrokkenen toejuichen">Betrokkenen toejuichen</option>                
+                  </select>
+                <small></small>
+              </div>
+              <div class="form-col">
+                <label for="ktaf2">Afdeling keuzetekst 2:</label>
+                  <select id="ktaf2" class="inputcss">
+                      <!-- Empty default option -->
+                      <option value="" disabled selected></option>
+                      <!-- Options -->
+                        <option value="kleine afdeling met een groot takenpakket. De griffie ondersteunt de gemeenteraad en dat werk gaat áltijd door. Dit doen wij met zo'n 10 collega's. We zorgen voor een zo goed mogelijk besluitvormingsproces van de raad. Zo ondersteunen we bij initiatiefvoorstellen, amendementen, moties en schriftelijke raadsvragen. Verkiezingen en vergaderingen worden niet verschoven omdat wij het zo goed regelen. Aan de andere kant verzorgen we de logistieke ondersteuning bij bijvoorbeeld thema-avonden. Ook de communicatie vanuit de raad maken wij. We zijn streng op een positieve manier. De politiek bepaalt ons werk en daarin bewegen wij altijd mee.">Griffie</option>
+                        <option value="diverse club mensen. En dat zijn er ruim 100! We werken vanuit vertrouwen en veiligheid waardoor iedereen zichzelf kan zijn. BCO bestaat uit de units hr, communicatie, juridische zaken, inkoop en veiligheid én de taakgroep gebiedsregie en concernadvies. We zijn echt een mix van intern gerichte dienstverlening en houden ons tegelijk bezig met wat speelt in de stad. Een leuke en uitdagende combinatie waarin je contact hebt met de hele organisatie. Zo werken we onder andere aan een nieuwe cao, de opvang van vluchtelingen uit Oekraïne én nieuwe wijkveiligheidsplannen.">Bestuurs- en Concernondersteuning</option>
+                        <option value="groep van zo'n 110 energieke vakfanaten. Bij Stadsontwikkeling maken we de woon-, werk- en leefomgeving van Capelle nóg kwalitatiever. We weten wat hard werken is en maken mooie beleidsproducten. En is er een feestje? Dan kom je ons daar vast tegen. Dat geldt overigens ook voor een inspirerend werkbezoek of een drankje op het terras van onze lokale horeca. Onze afdeling bestaat uit de units projecten, ruimtelijke ontwikkeling, duurzaamheid en wonen én economie, grondzaken en geo. Zo werken we aan het nieuwe Rivium waarmee we zo'n 5.000 woningen realiseren aan de rand van Capelle. Wij zijn koploper in het uitproberen van ideeën. Nieuwe talenten zijn altijd welkom en collega's opleiden doen we graag.">Stadsontwikkeling</option>
+                        <option value="hecht team van meer dan 100 vakgenoten. Je voelt van nature wat een Capellenaar nodig heeft en daar handel je naar. Inwoners en collega's staan bij ons altijd centraal. Zo bouwen we onder andere nieuwe scholen, beantwoorden we vragen, ontzorgen we en laten we alle informatiestromen goed verlopen. Dat doen we met de units informatie, burgerzaken en klantcontactcentrum, diensten én vastgoed. We werken veel en graag samen met allerlei partners, die hebben we écht nodig. Samen zorgen we voor tevreden klanten. We doen van alles en iedereen is welkom.">Dienstverlening</option>
+                        <option value="veelzijdig en betrokken team. Wij maken dingen mogelijk in de Capelse buitenruimte. We bestaan uit de units vergunning, toezicht en handhaving, service, beheer openbare ruimte én project en engineering. Samen werken we aan een juiste handhaving, belangrijke omgevingswetten, warm contact met bewoners en ondernemers, projectmatig onderhoud en de (her)inrichting van de buitenruimte. Dat doen we op een slimme en duurzame manier. Met 150 collega's zorgen we dus voor een schoon, heel, veilig en duurzaam Capelle. Binnen Stadsbeheer krijg je vrijheid en een uitdagende functie, gedeeltelijk thuiswerken hoort daar natuurlijk bij. Nieuwe talenten zijn altijd welkom en collega's opleiden doen we graag.">Stadsbeheer</option>
+                        <option value="deskundige en betrokken professionals. En met zo'n 50 teamgenoten adviseren en ondersteunen wij de organisatie als het financieel geweten van Capelle. Dit doen wij samen met onze stafspecialisten en de units belastingen, administratie én beleid en advies. Van de Rechtmatigheidsverantwoording richting het college tot aan het financieel beleid, van begroting tot financiële administratie en van WOZ-beschikkingen tot invordering. Wij zien alles. Op inhoud bijblijven doen we door regelmatig naar vakinhoudelijke congressen of evenementen te gaan. We hebben ruimte voor talent en jouw carrière ondersteunen we graag met een bijpassende opleiding.">Financiën</option>
+                        <option value="geïnteresseerde collega's die veel weten. In een hechte groep van zo'n 95 collega's verzorgen wij het sociaal domein. Dat doen we met onze staf en de units Wet maatschappelijke ondersteuning, frontline, jeugd, educatie en vrije tijd én maatschappelijke zorg en participatie. Alles wat we doen heeft te maken met onderwerpen zoals gezondheid, onderwijs, welzijn, cultuur en sport. Het project financiële bestaanszekerheid is daar een voorbeeld van. Inwoners en verenigingen die financieel onder druk staan als gevolg van de hoge energieprijzen en inflatie helpen wij. Dat doen we met veel liefde. We hebben écht het beste voor met de Capellenaren.">Samenleving</option>
+                  </select>
+                <small></small>
+              </div>
+              <div class="form-col">
+                <label for="ktaf1vb">Voorbeeld bij afdeling keuzetekst 1:</label>
+                  <textarea id="ktaf1vb" rows="5" class="inputcss"></textarea>
+                <small></small>
+              </div>
+            </div>
+      
+            <div class="form-row" id="Skills en talent">
+              <div class="form-col">
+                <label for="hardskills">Hardskills:</label>
+                  <textarea id="hardskills" rows="5" class="inputcss"></textarea>
+                <small></small>
+              </div>
+              <div class="form-col">
+                <label for="talentkeuze">Talent keuzetekst</label>
+                  <select id="talentkeuze" class="inputcss">
+                      <!-- Empty default option -->
+                      <option value="" disabled selected></option>
+                      <!-- Options -->
+                      <option value=""></option>
+                      <option value=""></option>
+                      <option value=""></option>
+                  </select>
+                <small></small>
+              </div>
+            </div>
+      
+            <div class="form-row" id="Arbeidsvoorwaarden">
+              <div class="form-col">
+                <label for="voorwaardenbullets">Arbeidsvoorwaarden:</label>
+                  <div class="row">
+                    <div class="col">
+                    
+                    <div class="checkbox-wrapper">
+                      <input type="checkbox" id="checkbox1" class="checkbox-input" value="een individueel keuzebudget (IKB) van 17,05% bovenop je bruto jaarsalaris.">
+                      <label for="checkbox1" class="checkbox-label">individueel keuzebudget</label>
+                    </div>
+                    
+                    <div class="checkbox-wrapper">
+                      <input type="checkbox" id="checkbox2" class="checkbox-input" value="de optie voor het sparen van extra verlofdagen en de mogelijkheid tot het kopen of verkopen van vrije dagen.">
+                      <label for="checkbox2" class="checkbox-label">sparen extra verlofdagen</label>
+                    </div>
+                    
+                    <div class="checkbox-wrapper">
+                      <input type="checkbox" id="checkbox3" class="checkbox-input" value="uitgaand van een fulltime werkweek 144 wettelijke vakantie-uren én 50,4 uur bovenwettelijke vakantie-uren.">
+                      <label for="checkbox3" class="checkbox-label">vakantie-uren</label>
+                    </div>
+                    
+                    <div class="checkbox-wrapper">
+                      <input type="checkbox" id="checkbox4" class="checkbox-input" value="26 weken ouderschapsverlof waarvan 9 weken betaald en 17 weken onbetaald. Als partner krijg je 1 week geboorteverlof en 5 weken aanvullend geboorteverlof (Wbo).">
+                      <label for="checkbox4" class="checkbox-label">ouderschapsverlof</label>
+                    </div>
+                    </div>
+                    <div class="col">
+                    <div class="checkbox-wrapper">
+                      <input type="checkbox" id="checkbox5" class="checkbox-input" value="een laptop en telefoon én als je thuiswerkt een budget van € 1.000,00 voor het inrichten van een werkplek.">
+                      <label for="checkbox5" class="checkbox-label">laptop, telefoon, thuiswerkplek</label>
+                    </div>
+                    
+                    <div class="checkbox-wrapper">
+                      <input type="checkbox" id="checkbox6" class="checkbox-input" value="voor de dagen dat je thuiswerkt een thuiswerkvergoeding van € 3,00 per dag.">
+                      <label for="checkbox6" class="checkbox-label">thuiswerkvergoeding</label>
+                    </div>
+                    
+                    <div class="checkbox-wrapper">
+                      <input type="checkbox" id="checkbox7" class="checkbox-input" value="voor de dagen dat je naar kantoor komt een reiskostenvergoeding.">
+                      <label for="checkbox7" class="checkbox-label">reiskostenvergoeding</label>
+                    </div>
+                    
+                    <div class="checkbox-wrapper">
+                      <input type="checkbox" id="checkbox8" class="checkbox-input" value="een beveiligde fietsenstalling én een perfecte bereikbaarheid met openbaar vervoer. Voor de minder duurzame opties is er gratis parkeergelegenheid.">
+                      <label for="checkbox8" class="checkbox-label">fietsenstalling, ov, parkeren</label>
+                    </div>
+                    </div>
+                    <div class="col">
+                      <div class="checkbox-wrapper">
+                      <input type="checkbox" id="checkbox9" class="checkbox-input" value="de kans om gebruik te maken van ons Talentprogramma CapTalent. Haal het beste uit jezelf met onze coaches en opleidingsmogelijkheden.">
+                      <label for="checkbox9" class="checkbox-label">Talentprogramma CapTalent</label>
+                    </div>
+                    
+                    <div class="checkbox-wrapper">
+                      <input type="checkbox" id="checkbox10" class="checkbox-input" value="een digitale omgeving waarin je kosteloos verschillende opleidingen kunt volgen.">
+                      <label for="checkbox10" class="checkbox-label">opleidingen</label>
+                    </div>
+                    
+                    <div class="checkbox-wrapper">
+                      <input type="checkbox" id="checkbox11" class="checkbox-input" value="een collectieve kortingsafspraak bij Centraal Beheer voor verzekeringen en bij het IZA/CZ/Menzis voor aanvullende zorgverzekeringen.">
+                      <label for="checkbox11" class="checkbox-label">collectieve kortingsafspraak</label>
+                    </div>
+                    
+                    <div class="checkbox-wrapper">
+                      <input type="checkbox" id="checkbox12" class="checkbox-input" value="een bijdrage in je zorgverzekering van € 168 vanaf schaal 7 en € 296 lager dan schaal 7.">
+                      <label for="checkbox12" class="checkbox-label">bijdrage zorgverzekering</label>
+                    </div>
+                    </div>
+                    <div class="col">
+                      <div class="checkbox-wrapper">
+                      <input type="checkbox" id="checkbox13" class="checkbox-input" value="een fietsregeling zodat je milieuvriendelijk kunt reizen.">
+                      <label for="checkbox13" class="checkbox-label">fietsregeling</label>
+                    </div>
+                    
+                    <div class="checkbox-wrapper">
+                      <input type="checkbox" id="checkbox14" class="checkbox-input" value="een aanvulling op je arbeidsongeschiktheidspensioen bij Loyalis. Heb je die al? Geef dan door dat je van werkgever bent veranderd.">
+                      <label for="checkbox14" class="checkbox-label">arbeidsongeschiktheidspensioen</label>
+                    </div>
+                    
+                    <div class="checkbox-wrapper">
+                      <input type="checkbox" id="checkbox15" class="checkbox-input" value="een modern kantoor waar je kan werken met flexibele werkplekken.">
+                      <label for="checkbox15" class="checkbox-label">flexibele werkplekken</label>
+                    </div>
+                    
+                    <div class="checkbox-wrapper">
+                      <input type="checkbox" id="checkbox16" class="checkbox-input" value="een bedrijfsrestaurant met heerlijke, gezonde én verse lunches.">
+                      <label for="checkbox16" class="checkbox-label">gezonde lunches</label>
+                    </div>                
+                    </div>   
+                    <small></small>
+                  </div>
+              </div>
+            </div>
+      
+            <div class="form-row" id="Salaris, schaal, sluitingsdatum">
+              <div class="form-col">
+                <label for="salaris" data-toggle="tooltip" title="">Salaris tot:</label>
+                  <input type="text" id="salaris" class="inputcss">
+                <small></small>
+              </div>
+              <div class="form-col">
+                <label for="schaal" data-toggle="tooltip" title="">Schaalnummer:</label>
+                  <input type="text" id="schaal" class="inputcss">
+                <small></small>
+              </div>
+              <div class="form-col">
+                <label for="sluitingsdatum" data-toggle="tooltip" title="">Sluitingsdatum:</label>
+                  <input type="text" id="sluitingsdatum" class="inputcss">
+                <small></small>
+              </div>
+            </div>
+      
+            <div class="form-row" id="Vacaturehouder">
+              <div class="form-col">
+                <label for="naamvacaturehouder" data-toggle="tooltip" title="">Naam vacaturehouder:</label>
+                  <input type="text" id="naamvacaturehouder" class="inputcss">
+                <small></small>
+              </div>
+              <div class="form-col">
+                <label for="functievacaturehouder" data-toggle="tooltip" title="">Functie vacaturehouder:</label>
+                  <input type="text" id="functievacaturehouder" class="inputcss">
+                <small></small>
+              </div>
+              <div class="form-col">
+                <label for="emailvacaturehouder" data-toggle="tooltip" title="">E-mailadres vacaturehouder:</label>
+                  <input type="text" id="emailvacaturehouder" class="inputcss">
+                <small></small>
+              </div>
+              <div class="form-col">
+                <label for="telvacaturehouder" data-toggle="tooltip" title="">Telefoonnummer vacaturehouder</label>
+                  <input type="text" id="telvacaturehouder" class="inputcss">
+                <small></small>
+              </div>
+            </div>
+      
+            <div class="form-row" id="Recruiter">
+              <div class="form-col">
+                <label for="naamrecruiter" data-toggle="tooltip" title="">Naam recruiter</label>
+                  <input type="text" id="naamrecruiter" class="inputcss">
+                <small></small>
+              </div>
+              <div class="form-col">
+                <label for="functierecruiter" data-toggle="tooltip" title="">Functie recruiter:</label>
+                  <input type="text" id="functierecruiter" class="inputcss">
+                <small></small>
+              </div>
+              <div class="form-col">
+                <label for="emailrecruiter" data-toggle="tooltip" title="">E-mailadres recruiter:</label>
+                  <input type="text" id="emailrecruiter" class="inputcss">
+                <small></small>
+              </div>
+              <div class="form-col">
+                <label for="telrecruiter" data-toggle="tooltip" title="">Telefoonnummer recruiter:</label>
+                  <input type="text" id="telrecruiter" class="inputcss">
+                <small></small>
+              </div>
+            </div>      
+          </form>
+        </div>
+      </div>  
       <div class="btn-area">
         <button type="button" onclick="generate()" class="btn btn-primary btn-rounded">Genereer</button>
       </div>
@@ -159,7 +376,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>    
     <script src="https://unpkg.com/docx@7.1.0/build/index.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
-    <script src="js/bd.js"></script>
+    <script src="js/capelle.js"></script>
 
 </body>
 </html>

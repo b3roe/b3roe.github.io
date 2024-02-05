@@ -1,651 +1,415 @@
 $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-})
+  $('[data-toggle="tooltip"]').tooltip();
+});
 
 // Elementen formulier ophalen
 const form = document.querySelector("form");
-const functietitelInput = document.querySelector("#functietitel");
-const standplaatsInput = document.querySelector("#standplaats");
-const opdrachtgeverInput = document.querySelector("#opdrachtgever");
-const datumInput = document.querySelector("#datum");
-const contactpersoonInput = document.querySelector("#contactpersoon");
-const ordernummerInput = document.querySelector("#ordernummer");
-const copywriterInput = document.querySelector("#copywriter");
-const gotwInput = document.querySelector("#gotw");
+const sector = document.querySelector("#sector");
 const introInput = document.querySelector("#intro");
-const ditdoejebijInput = document.querySelector("#ditdoejebij");
-const functieeisenInput = document.querySelector("#functieeisen");
-const pullInput = document.querySelector("#pullfactoren");
-const testquoteInput = document.querySelector("#testquote");
-const testnaamInput = document.querySelector("#testnaam");
-const testfunctieInput = document.querySelector("#testfunctie");
-const competentiesInput = document.querySelector("#competenties");
-const values = {
-  opdrachtgever: form.elements["opdrachtgever"].value,
-  ordernummer: form.elements["ordernummer"].value,
-  contactpersoon: form.elements["contactpersoon"].value,
-  functietitel: form.elements["functietitel"].value,
-  standplaats: form.elements["standplaats"].value,
-  datum: form.elements["datum"].value,
-  copywriter: form.elements["copywriter"].value,
-  gotw: form.elements["gotw"].value,
-  intro: form.elements["intro"].value,
-  ditdoejebij: form.elements["ditdoejebij"].value,
-  pullfactoren: form.elements["pullfactoren"].value,
-  testquote: form.elements["testquote"].value,
-  testnaam: form.elements["testnaam"].value,
-  testfunctie: form.elements["testfunctie"].value,
-  functieeisen: form.elements["functieeisen"].value,
-  competenties: form.elements["competenties"].value,
+const functietitelInput = document.querySelector("#functietitel");
+const ktfi1Input = document.querySelector("#ktfi1");
+const ktfi2Input = document.querySelector("#ktfi2");
+const talentkeuzeInput = document.querySelector("#talentkeuze"); // Add talentkeuze input element
+const hoofdtaakInput = document.querySelector("#hoofdtaak");
+const deeltakenInput = document.querySelector("#deeltaken");
+const capellebullets1Input = document.querySelector("#capellebullets1");
+const capellebullets2Input = document.querySelector("#capellebullets2");
+const afdelingInput = document.querySelector("#afdeling");
+const collega1Input = document.querySelector("#naamcollega1");
+const collega2Input = document.querySelector("#naamcollega2");
+const quotecollegaInput = document.querySelector("#quotecollega");
+const ktaf1Input = document.querySelector("#ktaf1");
+const ktaf1vbInput = document.querySelector("#ktaf1vb");
+const ktaf2Input = document.querySelector("#ktaf2");
+const metvoorInput = document.querySelector("#metvoor");
+const salarisInput = document.querySelector("#salaris");
+const schaalInput = document.querySelector("#schaal");
+const hardskillsInput = document.querySelector("#hardskills");
+const voorwaardenbulletsInput = document.querySelector("#voorwaardenbullets");
+const sluitingsdatumInput = document.querySelector("#sluitingsdatum");
+const naamvacaturehouderInput = document.querySelector("#naamvacaturehouder");
+const functievacaturehouderInput = document.querySelector("#functievacaturehouder");
+const emailvacaturehouderInput = document.querySelector("#emailvacaturehouder");
+const telvacaturehouderInput = document.querySelector("#telvacaturehouder");
+const naamrecruiterInput = document.querySelector("#naamrecruiter");
+const functierecruiterInput = document.querySelector("#functierecruiter");
+const emailrecruiterInput = document.querySelector("#emailrecruiter");
+const telrecruiterInput = document.querySelector("#telrecruiter");
 
-};
+// Variables for user input
+let hoofdtaak = "Omschrijf hier de hoofdverantwoordelijkheid van de functie zo concreet mogelijk in maximaal 75 woorden]";
+let deeltaken = "[subverantwoordelijkheid/taak, start met een werkwoord. Minimaal 3 en maximaal 5 bulletpoints]";
+let capellebullets1 = "[keuzetekst 1 over Capelle]";
+let capellebullets2 = "[keuzetekst 2 over Capelle]";
+let afdeling = "[naam afdeling]";
+let collega1 = "[naam collega]";
+let collega2 = "[naam collega]";
+let quotecollega = "'quote van 1 van de 2 collega's'";
+let ktaf1 = "[Keuzetekst 1 afdeling]";
+let ktaf1vb = "[licht met een voorbeeld keuzetekst 1 beter toe. Gebruik hier maximaal 2 zinnen voor. Elke zin bevat maximaal 15 woorden]";
+let ktaf2 = "[keuzetekst 2 afdeling]";
+let metvoor = "door/met";
+let salaris = "[brutomaandsalaris]";
+let schaal = "[nummer]]";
+let hardskills = "[hardskill. Min. 3, max. 5 bulletpoints. Blijf weg bij pre en talenten of competenties. Max. 150 tekens per opsomming. Let erop dat het max. 15 woorden per zinsdeel zijn]";
+let voorwaardenbullets = "Default Voorwaardenbullets Value";
+let sluitingsdatum = "[sluitingsdatum]";
+let naamvacaturehouder = "[voor- en achternaam vacaturehouder]";
+let functievacaturehouder = "[functie vacaturehouder]";
+let emailvacaturehouder = "[e-mailadres]";
+let telvacaturehouder = "[telefoonnummer]";
+let naamrecruiter = "[voor- en achternaam]";
+let functierecruiter = "[functietitel]";
+let emailrecruiter = "[e-mailadres]";
+let telrecruiter = "[telefoonnummer]";
+let intro = "[Schrijf in 1 à 2 zinnen het antwoord op de vraag: waarom kiest de ideale kandidaat voor deze functie bij de gemeente Capelle aan den IJssel en niet voor dezelfde functie bij een andere gemeente? Gebruik hiervoor maximaal 15 woorden per zin]";
+let functietitel = "[functietitel]";
+let ktfi1 = "[keuzetekst 1 functie-inhoud]";
+let ktfi2 = "[keuzetekst 2 functie-inhoud]";
+let talentkeuze = "[talentkeuze]";
 
-// Variabelen voor gebruikersinput
-let functietitel = "";
-let standplaats = "";
-let opdrachtgever = "";
-let datum = "";
-let contactpersoon = "";
-let ordernummer = "";
-let copywriter = "";
-let gotw = "";
-let intro = "";
-let ditdoejebij = "";
-let pullfactoren = "";
-let testquote = "";
-let testnaam = "";
-let testfunctie = "";
-let functieeisen = "";
-let competenties = "";
 
-// Update variabelen terwijl gebruiker input geeft
-functietitelInput.addEventListener("input", (event) => {
-  functietitel = event.target.value;
+// Update options keuzeteksten
+function updateOptions() {
+  const sectorDropdown = document.getElementById("sector");
+  const ktfi2Dropdown = document.getElementById("ktfi2");
+
+  // Clear existing options
+  ktfi2Dropdown.innerHTML = '<option value="" disabled selected></option>';
+
+  // Define options based on selected sector
+  const sectorValue = sectorDropdown.value;
+  const options = [];
+
+  switch (sectorValue) {
+    case "Stadsbeheer":
+      options.push("beschermende ", "vastberaden ", "gemotiveerde ", "enthousiaste ", "omgevingsbewuste ");
+      break;
+    case "Voor de samenleving":
+      options.push("zorgzame ", "relatiegerichte ", "betrokken ", "sociale ", "verbindende ");
+      break;
+    case "Dienstverlening":
+      options.push("communicatieve ", "optimistische ", "geduldige ", "opgewekte ", "oplossingsgerichte ");
+      break;
+    case "Stadsontwikkeling":
+      options.push("vindingrijke ", "inspirerende ", "vernieuwende ", "ontwikkelende ", "creatieve ");
+      break;
+    case "Bestuurs- en concernondersteuning":
+      options.push("toekomstgerichte ", "innovatieve ", "overtuigende ", "ondersteunende ", "ondernemende ");
+      break;
+    case "Financiën":
+      options.push("nauwkeurige ", "feitelijke ", "opmerkzame ", "gestructureerde ", "analytische ");
+      break;
+    // Add cases for other sectors as needed
+  }
+
+  // Populate ktfi2Dropdown with new options
+  for (const optionText of options) {
+    const option = document.createElement("option");
+    option.text = optionText;
+    option.value = optionText;
+    ktfi2Dropdown.add(option);
+  }
+}
+
+// Update options talentkeuze
+function updateTalentkeuzeOptions() {
+  const talentkeuzeDropdown = document.getElementById("talentkeuze");
+
+  // Clear existing options
+  talentkeuzeDropdown.innerHTML = '<option value="" disabled selected></option>';
+
+  // Define options based on selected sector
+  const sectorValue = sector.value;
+  const options = [];
+
+  switch (sectorValue) {
+    case "Stadsbeheer":
+      options.push(
+        "frisse blik op het voorkomen en hergebruiken van afval.",
+        "creatieve brein voor het bedenken van nieuwe inzamelingsmogelijkheden.",
+        "aandacht voor een schone en nette stad.",
+        "liefde voor onze gemeente.",
+        "energieke manier van werken."
+      );
+      break;
+    case "Stadsontwikkeling":
+      options.push(
+        "hart voor het bouwen aan een aantrekkelijke stad.",
+        "toewijding voor groene vernieuwingen.",
+        "innoverende ideeën.",
+        "optimistische manier van denken.",
+        "mindset dat alles mogelijk is."
+      );
+      break;
+    case "Voor de samenleving":
+      options.push(
+        "verbindende methodes.",
+        "natuurlijke manier van helpen.",
+        "maatschappelijke betrokkenheid.",
+        "belangstelling in de mens.",
+        "gevoel voor je omgeving."
+      );
+      break;
+    case "Bestuurs- en concernondersteuning":
+      options.push(
+        "succesvolle inzichten.",
+        "blik op verbeteringen in onze dienstverlening.",
+        "focus op doelstellingen.",
+        "ongefilterde mening te geven.",
+        "vlijmscherpe onderbouwingen."
+      );
+      break;
+    case "Dienstverlening":
+      options.push(
+        "zicht op procesoptimalisatie.",
+        "motivatie om inwoners en ondernemers nóg slimmer en sneller te helpen.",
+        "nieuwsgierigheid naar wat er speelt in de stad.",
+        "persoonlijke aanpak.",
+        "betrouwbare werkwijze."
+      );
+      break;
+    case "Financiën":
+      options.push(
+        "standvastigheid om elke dag weer de beste resultaten te leveren.",
+        "visie op trends en ontwikkelingen in je vakgebied.",
+        "scherpe blik op de allerkleinste details.",
+        "voorspellende gave.",
+        "vernieuwende verbeteringen."
+      );
+      break;
+    // Add cases for other sectors as needed
+  }
+
+  // Populate talentkeuzeDropdown with new options
+  for (const optionText of options) {
+    const option = document.createElement("option");
+    option.text = optionText;
+    option.value = optionText;
+    talentkeuzeDropdown.add(option);
+  }
+}
+
+// Event listeners
+sector.addEventListener("change", (event) => {
+  ktfi2 = ktfi2Input.value;
+  talentkeuze = talentkeuzeInput.value; // Update talentkeuze variable
+
+  updateOptions();
+  updateTalentkeuzeOptions(); // Call updateTalentkeuzeOptions for talentkeuze
 });
-standplaatsInput.addEventListener("input", (event) => {
-  standplaats = event.target.value;
-});
-opdrachtgeverInput.addEventListener("input", (event) => {
-  opdrachtgever = event.target.value;
-});
-datumInput.addEventListener("input", (event) => {
-  datum = event.target.value;
-});
-contactpersoonInput.addEventListener("input", (event) => {
-  contactpersoon = event.target.value;
-});
-ordernummerInput.addEventListener("input", (event) => {
-  ordernummer = event.target.value;
-});
-copywriterInput.addEventListener("input", (event) => {
-  copywriter = event.target.value;
-});
-gotwInput.addEventListener("input", (event) => {
-  gotw = event.target.value;
-});
+
 introInput.addEventListener("input", (event) => {
-  intro = event.target.value;
-});
-ditdoejebijInput.addEventListener("input", (event) => {
-  ditdoejebij = event.target.value;
-});
-pullInput.addEventListener("input", (event) => {
-  pullfactoren = event.target.value;
-});
-testquoteInput.addEventListener("input", (event) => {
-  testquote = event.target.value;
-});
-testnaamInput.addEventListener("input", (event) => {
-  testnaam = event.target.value;
-});
-testfunctieInput.addEventListener("input", (event) => {
-  testfunctie = event.target.value;
-});
-functieeisenInput.addEventListener("input", (event) => {
-  functieeisen = event.target.value;
-});
-competentiesInput.addEventListener("input", (event) => {
-  competenties = event.target.value;
+  intro = event.target.value.trim();
 });
 
-// show a message with a type of the input
-function showMessage(input, message, type) {
-	// get the small element and set the message
-	const msg = input.parentNode.querySelector("small");
-	msg.innerText = message;
-	// update the class for the input
-	input.className = type ? "success" : "error";
-	return type;
-}
+functietitelInput.addEventListener("input", (event) => {
+  functietitel = event.target.value.trim();
+});
 
-//Error message functions
-function showError(input, message) {
-	return showMessage(input, message, false);
-}
+ktfi1Input.addEventListener("input", (event) => {
+  ktfi1 = event.target.value.trim();
+});
 
-function showSuccess(input) {
-	return showMessage(input, "", true);
-}
+hoofdtaakInput.addEventListener("input", (event) => {
+  hoofdtaak = event.target.value.trim();
+});
 
-function hasValue(input, message) {
-	if (input.value.trim() === "") {
-		return showError(input, message);
-	}
-	return showSuccess(input);
-}
+deeltakenInput.addEventListener("input", (event) => {
+  deeltaken = event.target.value.trim();
+});
 
-//Error messages
-const REQUIRED = "Dit veld is vereist";
-const DROPDOWN_REQUIRED = "Selecteer een optie";
-const EMAIL_INVALID = "Voer een correct e-mailadres in";
-const DATE_INVALID = "Voer een correcte datum in (dd-mm-jjjj)";
-const NUMBER_INVALID = "Gebruik alleen cijfers";
-const JE_INVALID = "Begin iedere zin met 'Je...'";
+capellebullets1Input.addEventListener("input", (event) => {
+  capellebullets1 = event.target.value.trim();
+});
 
-//Valideer ordernummer
-function hasOnlyNumbers(input, requiredMsg, invalidMsg) {
-	//check if the value is not empty
-	if (!hasValue(input, requiredMsg)) {
-		return false;
-	}
+capellebullets2Input.addEventListener("input", (event) => {
+  capellebullets2 = event.target.value.trim();
+});
 
-	// validate digits only (0-9)
-	const numberRegex = /^\d+$/;
+afdelingInput.addEventListener("input", (event) => {
+  afdeling = event.target.value.trim();
+});
 
-	const ordernummer = input.value.trim();
-	if (!numberRegex.test(ordernummer)) {
-		return showError(input, invalidMsg);
-	}
-	return showSuccess(input);
-}
+collega1Input.addEventListener("input", (event) => {
+  collega1 = event.target.value.trim();
+});
 
-//Valideer email
-function validateEmail(input, requiredMsg, invalidMsg) {
-	// check if the value is not empty
-	if (!hasValue(input, requiredMsg)) {
-		return false;
-	}
-	// validate email format
-	const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+collega2Input.addEventListener("input", (event) => {
+  collega2 = event.target.value.trim();
+});
 
-	const contactpersoon = input.value.trim();
-	if (!emailRegex.test(contactpersoon)) {
-		return showError(input, invalidMsg);
-	}
-	return true;
-}
+quotecollegaInput.addEventListener("input", (event) => {
+  quotecollega = event.target.value.trim();
+});
 
-//Valideer functie-eisen
-function validateJe(input, requiredMsg, invalidMsg) {
-  const functieLines = functieeisen.split('\n');
-  if (!hasValue(input, requiredMsg)) {
-    return false;
-  };
+ktaf1Input.addEventListener("input", (event) => {
+  ktaf1 = event.target.value.trim();
+});
 
-  functieLines.forEach((line) => {
-    if (line.startsWith("Je ") || line.startsWith("je ")) {
-      valid = true;
+ktaf1vbInput.addEventListener("input", (event) => {
+  ktaf1vb = event.target.value.trim();
+});
+
+ktaf2Input.addEventListener("input", (event) => {
+  ktaf2 = event.target.value.trim();
+});
+
+metvoorInput.addEventListener("input", (event) => {
+  metvoor = event.target.value.trim();
+});
+
+salarisInput.addEventListener("input", (event) => {
+  salaris = event.target.value.trim();
+});
+
+schaalInput.addEventListener("input", (event) => {
+  schaal = event.target.value.trim();
+});
+
+hardskillsInput.addEventListener("input", (event) => {
+  hardskills = event.target.value.trim();
+});
+
+voorwaardenbulletsInput.addEventListener("input", (event) => {
+  voorwaardenbullets = event.target.value.trim();
+});
+
+sluitingsdatumInput.addEventListener("input", (event) => {
+  sluitingsdatum = event.target.value.trim();
+});
+
+naamvacaturehouderInput.addEventListener("input", (event) => {
+  naamvacaturehouder = event.target.value.trim();
+});
+
+functievacaturehouderInput.addEventListener("input", (event) => {
+  functievacaturehouder = event.target.value.trim();
+});
+
+emailvacaturehouderInput.addEventListener("input", (event) => {
+  emailvacaturehouder = event.target.value.trim();
+});
+
+telvacaturehouderInput.addEventListener("input", (event) => {
+  telvacaturehouder = event.target.value.trim();
+});
+
+naamrecruiterInput.addEventListener("input", (event) => {
+  naamrecruiter = event.target.value.trim();
+});
+
+functierecruiterInput.addEventListener("input", (event) => {
+  functierecruiter = event.target.value.trim();
+});
+
+emailrecruiterInput.addEventListener("input", (event) => {
+  emailrecruiter = event.target.value.trim();
+});
+
+telrecruiterInput.addEventListener("input", (event) => {
+  telrecruiter = event.target.value.trim();
+});
+
+document.querySelectorAll('.checkbox-input').forEach(checkbox => {
+  checkbox.addEventListener('change', function () {
+    const value = this.value;
+
+    // Check if the checkbox is checked and add/remove value from the array
+    if (this.checked) {
+      checkedValues.push(value);
     } else {
-      valid = false;
+      checkedValues = checkedValues.filter(item => item !== value);
     }
+
+    // Update the list based on the checked values
+    updateList();
   });
-
-  if (valid) {
-    return true;
-  } else {
-    return showError(input, invalidMsg);
-  }
-
-}
-
-//Valideer datum
-function validateDate(input, requiredMsg, invalidMsg) {
-	// check if the value is not empty
-	if (!hasValue(input, requiredMsg)) {
-		return false;
-	}
-	// validate date format
-	const dateRegex = /^\d{2}[\/-]\d{2}[\/-]\d{4}$/; // accept both / and - as separators
-
-	const datum = input.value.trim();
-	if (!dateRegex.test(datum)) {
-		return showError(input, invalidMsg)
-	}
-	return true;
-}
-
-function validate() {
-  let isValid = true;
-  if (!hasValue(form.elements["opdrachtgever"], DROPDOWN_REQUIRED)) {
-    // Display error message for opdrachtgever field
-    isValid = false;
-  }
-  if (!hasOnlyNumbers(form.elements["ordernummer"], REQUIRED, NUMBER_INVALID)) {
-    // Display error message for ordernummer field
-    isValid = false;
-  }
-  if (!validateEmail(form.elements["contactpersoon"], REQUIRED, EMAIL_INVALID)) {
-    // Display error message for contactpersoon field
-    isValid = false;
-  }
-  if (!hasValue(form.elements["functietitel"], REQUIRED)) {
-    // Display error message for functietitel field
-    isValid = false;
-  }
-  if (!hasValue(form.elements["standplaats"], REQUIRED)) {
-    // Display error message for standplaats field
-    isValid = false;
-  }
-  if (!validateDate(form.elements["datum"], REQUIRED, DATE_INVALID)) {
-    // Display error message for datum field
-    isValid = false;
-  }
-  if (!hasValue(form.elements["copywriter"], DROPDOWN_REQUIRED)) {
-    // Display error message for copywriter field
-    isValid = false;
-  }
-  if (!hasValue(form.elements["gotw"], REQUIRED)) {
-    // Display error message for gotw field
-    isValid = false;
-  }
-  if (!hasValue(form.elements["intro"], REQUIRED)) {
-    // Display error message for intro field
-    isValid = false;
-  }
-  if (!hasValue(form.elements["ditdoejebij"], REQUIRED)) {
-    // Display error message for ditdoejebij field
-    isValid = false;
-  }
-  if (!hasValue(form.elements["pullfactoren"], REQUIRED)) {
-    // Display error message for pullfactoren field
-    isValid = false;
-  }
-  if (!hasValue(form.elements["testquote"], REQUIRED)) {
-// Display error message for testimonial field
-    isValid = false;
-  }
-  if (!hasValue(form.elements["testnaam"], REQUIRED)) {
-    // Display error message for testimonial field
-    isValid = false;
-  }
-  if (!hasValue(form.elements["testfunctie"], REQUIRED)) {
-    // Display error message for testimonial field
-    isValid = false;
-  }
-  if (!validateJe(form.elements["functieeisen"], REQUIRED, JE_INVALID)) {
-    // Display error message for functieeisen field
-    isValid = false;
-  }
-  if (!hasValue(form.elements["competenties"], REQUIRED)) {
-    // Display error message for competenties field
-    isValid = false;
-  }
-  return isValid;
-}
-
+});
 
 function generate() {
-  if (validate()) {
-
-  const table = new docx.Table({
-    width: {
-      size: 70,
-      type: docx.WidthType.PERCENTAGE,
-    },
-    rows: [
-    //In opdracht van      
-        new docx.TableRow({
-            children: [
-                new docx.TableCell({
-                  width: {
-                    size: 35,
-                    type: docx.WidthType.PERCENTAGE,
-                  },
-                  margins: {
-                    left: docx.convertInchesToTwip(0.1),
-                    right: docx.convertInchesToTwip(0.1),
-                },
-                    children: [new docx.Paragraph({
-                      children: [
-                        new docx.TextRun({
-                          text: "In opdracht van",
-                          bold: true,
-                          font: "Calibri",                          
-                        })
-                      ]
-                    })],
-                }),
-                new docx.TableCell({
-                  margins: {
-                    left: docx.convertInchesToTwip(0.1),
-                    right: docx.convertInchesToTwip(0.1),
-                },
-                    children: [new docx.Paragraph({
-                      children: [
-                        new docx.TextRun({
-                          text: opdrachtgever,
-                          font: "Calibri",    
-                        })],
-                    })],
-                }),
-            ],
-          }),
-    //Ordernummer
-          new docx.TableRow({
-            children: [
-              new docx.TableCell({
-                margins: {
-                  left: docx.convertInchesToTwip(0.1),
-                  right: docx.convertInchesToTwip(0.1),
-              },
-                children: [new docx.Paragraph({
-                  children: [
-                    new docx.TextRun({
-                      text: "Ordernummer",
-                      bold: true,
-                      font: "Calibri",                          
-                    })
-                  ]
-                })],
-            }),
-                new docx.TableCell({
-                  margins: {
-                    left: docx.convertInchesToTwip(0.1),
-                    right: docx.convertInchesToTwip(0.1),
-                },
-                    children: [new docx.Paragraph({
-                      children: [
-                        new docx.TextRun({
-                          text: ordernummer,
-                          font: "Calibri",    
-                        })],
-                    })],
-                }),
-            ],
-          }),
-    //Contactpersoon
-          new docx.TableRow({
-            children: [
-              new docx.TableCell({
-                margins: {
-                  left: docx.convertInchesToTwip(0.1),
-                  right: docx.convertInchesToTwip(0.1),
-              },
-                children: [new docx.Paragraph({
-                  children: [
-                    new docx.TextRun({
-                      text: "Contactpersoon",
-                      bold: true,
-                      font: "Calibri",                          
-                    })
-                  ]
-                })],
-            }),
-                new docx.TableCell({
-                  margins: {
-                    left: docx.convertInchesToTwip(0.1),
-                    right: docx.convertInchesToTwip(0.1),
-                },
-                    children: [new docx.Paragraph({
-                      children: [
-                        new docx.TextRun({
-                          text: contactpersoon,
-                          font: "Calibri",    
-                        })],
-                    })],
-                }),
-            ],
-          }),
-    //Functietitel
-          new docx.TableRow({
-            children: [
-              new docx.TableCell({
-                margins: {
-                  left: docx.convertInchesToTwip(0.1),
-                  right: docx.convertInchesToTwip(0.1),
-              },
-                children: [new docx.Paragraph({
-                  children: [
-                    new docx.TextRun({
-                      text: "Functietitel",
-                      bold: true,
-                      font: "Calibri",                          
-                    })
-                  ]
-                })],
-            }),
-                new docx.TableCell({
-                  margins: {
-                    left: docx.convertInchesToTwip(0.1),
-                    right: docx.convertInchesToTwip(0.1),
-                },
-                    children: [new docx.Paragraph({
-                      children: [
-                        new docx.TextRun({
-                          text: functietitel,
-                          font: "Calibri",    
-                        })],
-                    })],
-                }),
-            ],
-          }),
-    //Locatie
-          new docx.TableRow({
-            children: [
-              new docx.TableCell({
-                margins: {
-                  left: docx.convertInchesToTwip(0.1),
-                  right: docx.convertInchesToTwip(0.1),
-              },
-                children: [new docx.Paragraph({
-                  children: [
-                    new docx.TextRun({
-                      text: "Locatie",
-                      bold: true,
-                      font: "Calibri",                          
-                    })
-                  ]
-                })],
-            }),
-                new docx.TableCell({
-                  margins: {
-                    left: docx.convertInchesToTwip(0.1),
-                    right: docx.convertInchesToTwip(0.1),
-                },
-                    children: [new docx.Paragraph({
-                      children: [
-                        new docx.TextRun({
-                          text: standplaats,
-                          font: "Calibri",    
-                        })],
-                    })],
-                }),
-            ],
-          }),
-    //Datum 
-          new docx.TableRow({
-            children: [
-              new docx.TableCell({
-                margins: {
-                  left: docx.convertInchesToTwip(0.1),
-                  right: docx.convertInchesToTwip(0.1),
-              },
-                children: [new docx.Paragraph({
-                  children: [
-                    new docx.TextRun({
-                      text: "Datum",
-                      bold: true,
-                      font: "Calibri",                          
-                    })
-                  ]
-                })],
-            }),
-                new docx.TableCell({
-                  margins: {
-                    left: docx.convertInchesToTwip(0.1),
-                    right: docx.convertInchesToTwip(0.1),
-                },
-                    children: [new docx.Paragraph({
-                      children: [
-                        new docx.TextRun({
-                          text: datum,
-                          font: "Calibri",    
-                        })],
-                    })],
-                }),
-            ],
-          }),
-    //Copywriter
-          new docx.TableRow({
-            children: [
-              new docx.TableCell({
-                margins: {
-                  left: docx.convertInchesToTwip(0.1),
-                  right: docx.convertInchesToTwip(0.1),
-              },
-                children: [new docx.Paragraph({
-                  children: [
-                    new docx.TextRun({
-                      text: "Copywriter",
-                      bold: true,
-                      font: "Calibri",                          
-                    })
-                  ]
-                })],
-            }),
-                new docx.TableCell({
-                  margins: {
-                    left: docx.convertInchesToTwip(0.1),
-                    right: docx.convertInchesToTwip(0.1),
-                },
-                    children: [new docx.Paragraph({
-                      children: [
-                        new docx.TextRun({
-                          text: copywriter,
-                          font: "Calibri",    
-                        })],
-                    })],
-                }),
-            ],
-          }),
-    //Goed om te weten
-          new docx.TableRow({
-            children: [
-              new docx.TableCell({
-                margins: {
-                  left: docx.convertInchesToTwip(0.1),
-                  right: docx.convertInchesToTwip(0.1),
-              },
-                children: [new docx.Paragraph({
-                  children: [
-                    new docx.TextRun({
-                      text: "Goed om te weten",
-                      bold: true,
-                      font: "Calibri",                          
-                    })
-                  ]
-                })],
-            }),
-                new docx.TableCell({
-                  margins: {
-                    left: docx.convertInchesToTwip(0.1),
-                    right: docx.convertInchesToTwip(0.1),
-                },
-                    children: [new docx.Paragraph({
-                      children: [
-                        new docx.TextRun({
-                          text: gotw,
-                          font: "Calibri",    
-                        })],
-                    })],
-                }),
-            ],
-          }),
-        ]});
+//  if (validate()) {
 
 //Split input
-  const compLines = competenties.split(/[\n,]/);
-  const pullLines = pullfactoren.split(/[\n,]/);
-  const functieLines = functieeisen.split(/[\n,.]/);
+const hardskillsLines = hardskills.split(/[\n,]/);
+const deeltakenLines = deeltaken.split(/[\n,.]/);
 
-  // Trim witruimte van input
-  const trimmedCompLines = compLines.map(line => line.trim());
-  const trimmedPullLines = pullLines.map(line => line.trim());
-  const trimmedFunctieLines = functieLines.map(line => line.trim());
+// Trim witruimte van input
+const trimmedHardskillsLines = hardskillsLines.map(line => line.trim());
+const trimmedDeeltakenLines = deeltakenLines.map(line => line.trim());
 
 // Maak bullets van competenties input
-  const compBullets = trimmedCompLines.map(line => {
-    return new docx.Paragraph({
-      bullet: { level: 0 },
-      children: [
-        new docx.TextRun ({
-          text: line,
-          font: "Calibri",
-        })
-      ]
-    });
-  });
+const hardskillsBullets = trimmedHardskillsLines.map(line => {
+  let modifiedLine = line.toLowerCase(); // Convert the entire line to lowercase
 
-// Maak bullets van pullfactoren input
-  const pullBullets = trimmedPullLines.map(line => {
-    let modifiedLine = line;
-    if (modifiedLine !== '' && modifiedLine[0] === modifiedLine[0].toUpperCase()) {
-      modifiedLine = modifiedLine[0].toLowerCase() + modifiedLine.slice(1);
-    }
-    if (!modifiedLine.endsWith(".")) {
-      modifiedLine = modifiedLine + ".";
-    }
-    return new docx.Paragraph({
-      bullet: { level: 0 },
-      children: [
-        new docx.TextRun ({
-          text: modifiedLine,
-          font: "Calibri",
-        })
-      ]
-    });
-  });
-
-// Maak bullets van functie-eisen input
-  const functieBullets = trimmedFunctieLines.map(line => {
-    let modifiedLine = line;
-    if (modifiedLine !== '' && modifiedLine[0] === modifiedLine[0].toLowerCase()) {
-      modifiedLine = modifiedLine[0].toUpperCase() + modifiedLine.slice(1);
-    }
-    if (!modifiedLine.endsWith(".")) {
-      modifiedLine = modifiedLine + ".";
-    }
-    return new docx.Paragraph({
-      bullet: { level: 0 },
-      children: [
-        new docx.TextRun ({
-          text: modifiedLine,
-          font: "Calibri",
-        })
-      ]
-    });
-  });
-
-// Check of de opmaak van de testimonial quote correct is en pas deze evt. aan
-  let modifiedTestquote = testquote.trim();
-  modifiedTestquote = modifiedTestquote.charAt(0).toUpperCase() + modifiedTestquote.slice(1);
-  if (!modifiedTestquote.endsWith('.')) {
-    modifiedTestquote = modifiedTestquote + '.';
-  }
-  if (!modifiedTestquote.startsWith('"') || !modifiedTestquote.endsWith('"')) {
-    modifiedTestquote = '"' + modifiedTestquote + '"';
+  // Add a period at the end if it doesn't already end with one
+  if (!modifiedLine.endsWith(".")) {
+    modifiedLine = modifiedLine + ".";
   }
 
-//Check of de opmaak van de testimonial functie correct is en pas deze evt. aan
-  let modifiedTestnaam = testfunctie.trim();
+  return new docx.Paragraph({
+    bullet: { level: 0 },
+    children: [
+      new docx.TextRun ({
+        text: modifiedLine,
+        font: "Calibri",
+      })
+    ]
+  });
+});
 
-//Check of de opmaak van de testimonial functie correct is en pas deze evt. aan
-  let modifiedTestfunctie = testfunctie.trim();
-  modifiedTestfunctie = modifiedTestfunctie.toLowerCase();
+
+const deeltakenBullets = trimmedDeeltakenLines.map(line => {
+  let modifiedLine = line.toLowerCase(); // Convert the entire line to lowercase
+
+  // Add a period at the end if it doesn't already end with one
+  if (!modifiedLine.endsWith(".")) {
+    modifiedLine = modifiedLine + ".";
+  }
+
+  return new docx.Paragraph({
+    bullet: { level: 0 },
+    children: [
+      new docx.TextRun ({
+        text: modifiedLine,
+        font: "Calibri",
+      })
+    ]
+  });
+});
+
+//Maak bullets van arbeidsvoorwaarden input
+const checkboxes = document.querySelectorAll('.checkbox-input');
+const checkedValues = [];
+
+checkboxes.forEach(checkbox => {
+  if (checkbox.checked) {
+    checkedValues.push(checkbox.value);
+  }
+});
+
+const abvBullets = checkedValues.map(value => {
+  let modifiedValue = value.toLowerCase();
+
+  if (!modifiedValue.endsWith(".")) {
+    modifiedValue = modifiedValue + ".";
+  }
+
+  return new docx.Paragraph({
+    bullet: { level: 0 },
+    children: [
+      new docx.TextRun({
+        text: modifiedValue,
+        font: "Calibri",
+      }),
+    ],
+  });
+});
 
 // Genereer document
   const doc = new docx.Document({
-    creator: copywriter + " | VoorTekst",
+    creator: "Copywriter | VoorTekst",
+    encoding: "utf-8",
     sections: [{
       properties: {},
       children: [
@@ -662,9 +426,6 @@ function generate() {
           ],
         }),
 
-//Tabel
-        table,
-
 //Intro
         new docx.Paragraph({
           spacing: {
@@ -672,13 +433,7 @@ function generate() {
         },
           children: [
             new docx.TextRun({
-              text: "Intro",
-              bold: true,
-              font: "Calibri",
-              size: 20,
-            }),
-            new docx.TextRun({
-              text: intro,
+              text: intro + " Jouw talent en werkgeluk staat bij ons voorop.",
               bold: false,
               font: "Calibri",
               size: 20,
@@ -687,20 +442,20 @@ function generate() {
           ],
         }),
 
-//Dit doe je bij
+//Jouw functie
         new docx.Paragraph({
           spacing: {
             before: 200,
         },
           children: [
             new docx.TextRun({
-              text: "Dit doe je bij " + opdrachtgever,
+              text: "Jouw functie als " + functietitel + " heeft effect omdat... ",
               bold: true,
               font: "Calibri",
               size: 20,
             }),
             new docx.TextRun({
-              text: ditdoejebij,
+              text: "er áltijd draagvlak is voor een goed plan. Zo zorg jij voor " + ktfi1 + " als " + ktfi2 + functietitel + ". " + hoofdtaak + ". Verder houd jij je bezig met het:",
               bold: false,
               font: "Calibri",
               size: 20,
@@ -709,99 +464,186 @@ function generate() {
           ],
         }),
 
-//Een bijzondere baan omdat
+        ...deeltakenBullets,
+
+//Over Capelle aan den IJssel
         new docx.Paragraph({
           spacing: {
             before: 200,
         },
           children: [
             new docx.TextRun({
-              text: "Een bijzondere baan omdat...",
+              text: "Over Capelle aan den IJssel",
               bold: true,
               font: "Calibri",
               size: 20,
+            }),
+            new docx.TextRun({
+              text: "Wij zijn een gemeente met het mooiste aantal inwoners dat er bestaat. Groot genoeg om te werken met de uitdagingen en onderwerpen die bij een grote stad horen. Klein genoeg om op individueel niveau echt verschil te maken. Wist je trouwens dat:",
+              bold: false,
+              font: "Calibri",
+              size: 20,
+              break: 1,
             }),
           ],
         }),
 
-        ...pullBullets,
+        new docx.Paragraph({
+          bullet: { level: 0 },
+          children: [
+            new docx.TextRun({
+              text: capellebullets1,
+              font: "Calibri",
+            }),
+          ],
+        }),
+        new docx.Paragraph({
+          bullet: { level: 0 },
+          children: [
+            new docx.TextRun({
+              text: capellebullets2,
+              font: "Calibri",
+            }),
+          ],
+        }),
+        new docx.Paragraph({
+          bullet: { level: 0 },
+          children: [
+            new docx.TextRun({
+              text: "je als... " + functietitel + " de afdeling " + afdeling + " versterkt?",
+              font: "Calibri",
+            }),
+          ],
+        }),
 
-//Dit zegt een collega
+//Over afdeling
         new docx.Paragraph({
           spacing: {
             before: 200,
         },
           children: [
             new docx.TextRun({
-              text: "Dit zegt een collega over jouw werkomgeving",
+              text: "Over " + afdeling,
               bold: true,
               font: "Calibri",
               size: 20,
             }),
             new docx.TextRun({
-              text: modifiedTestquote,
+              text: "Hier ben jij onder andere de collega van " + collega1 + " en " + collega2 + ". " + ktaf1 + " is een talent dat jullie allemaal hebben. Dat merk je vooral door " + ktaf1vb,
+              bold: false,
+              font: "Calibri",
+              size: 20,
+              break: 1,
+            }),
+            new docx.TextRun({
+              text: quotecollega,
               bold: false,
               italics: true,
               font: "Calibri",
               size: 20,
+              break: 2,
+            }),
+            new docx.TextRun({
+              text: "Als collega van " + afdeling + " ben je lid van een " + ktaf2 + ".",
+              bold: false,
+              font: "Calibri",
+              size: 20,
+              break: 2,
+            }),
+          ],
+        }),
+
+//Jouw talenten
+        new docx.Paragraph({
+          spacing: {
+            before: 200,
+        },
+          children: [
+            new docx.TextRun({
+              text: "Jouw talenten",
+              bold: true,
+              font: "Calibri",
+              size: 20,
+            }),
+            new docx.TextRun({
+              text: "Iedereen heeft talenten en bij Capelle kan en mag je die altijd inzetten. Zo werken we samen aan een inclusieve samenleving. Dat doe je " + metvoor + " jouw " + talentkeuze + ". Verder heb je:",
+              bold: false,
+              font: "Calibri",
+              size: 20,
+              break: 1,
+            }),
+          ],
+        }),
+
+        ...hardskillsBullets,
+
+//Jouw mogelijkheden
+        new docx.Paragraph({
+          spacing: {
+            before: 200,
+        },
+          children: [
+            new docx.TextRun({
+              text: "Jouw mogelijkheden",
+              bold: true,
+              font: "Calibri",
+              size: 20,
+            }),
+            new docx.TextRun({
+              text: "tot € " + salaris + " bruto per maand inclusief 17,05% IKB (schaal " + schaal + ").",
+              bold: false,
+              font: "Calibri",
+              size: 20,
+              break: 1,
+            }),
+          ],
+        }),
+        ...abvBullets,
+
+//Daadkracht begint hier
+        new docx.Paragraph({
+          spacing: {
+            before: 200,
+        },
+          children: [
+            new docx.TextRun({
+              text: "Daadkracht begint hier",
+              bold: true,
+              font: "Calibri",
+              size: 20,
+            }),
+            new docx.TextRun({
+              text: "Iedereen mag meedoen en daar hoor jij ook bij. Daarom helpen we je graag op weg. We ontvangen graag jouw sollicitatie op deze vacature van " + functietitel + " bij de gemeente Capelle aan Den IJssel. Je kan solliciteren tot " + sluitingsdatum + ".",
+              bold: false,
+              font: "Calibri",
+              size: 20,
               break: 1,
             }),
             new docx.TextRun({
-              text: " - " + modifiedTestnaam,
+              text: "Vragen stellen mag altijd! Wil je meer weten over de functie? Neem dan contact op met " + naamvacaturehouder + ", " + functievacaturehouder + " via " + emailvacaturehouder + " of " + telvacaturehouder + ". Hier lees je alles over onze sollicitatieprocedure. Wil je hier meer over weten? Neem daarvoor contact op met " + naamrecruiter + ", " + functierecruiter + " via " + emailrecruiter + " of " + telrecruiter + ".",
               bold: false,
               font: "Calibri",
               size: 20,
+              break: 2,
             }),
             new docx.TextRun({
-              text: ", " + modifiedTestfunctie,
+              text: "'Samen maken we het verschil in Capelle'",
               bold: false,
               font: "Calibri",
               size: 20,
+              break: 2,
             }),
           ],
         }),
 
-//Wanneer past deze baan bij je?
-        new docx.Paragraph({
-          spacing: {
-            before: 200,
-        },
-          children: [
-            new docx.TextRun({
-              text: "Wanneer past deze baan bij je?",
-              bold: true,
-              font: "Calibri",
-              size: 20,
-            }),
-          ],
-        }),
-
-        ...functieBullets,
-
-//Competenties
-        new docx.Paragraph({
-          spacing: {
-            before: 200,
-        },
-          children: [
-            new docx.TextRun({
-              text: "Competenties",
-              bold: true,
-              font: "Calibri",
-              size: 20,
-            }),
-          ],
-        }),
-
-        ...compBullets,
       ],
     }]
   });
 
   docx.Packer.toBlob(doc).then(blob => {
     console.log(blob);
-    saveAs(blob, ordernummer + ".docx");
+    saveAs(blob, functietitel + ".docx");
     console.log("Document created successfully");
   });
 }
-}
+//}

@@ -20,25 +20,7 @@ const testquoteInput = document.querySelector("#testquote");
 const testnaamInput = document.querySelector("#testnaam");
 const testfunctieInput = document.querySelector("#testfunctie");
 const competentiesInput = document.querySelector("#competenties");
-const values = {
-  opdrachtgever: form.elements["opdrachtgever"].value,
-  ordernummer: form.elements["ordernummer"].value,
-  contactpersoon: form.elements["contactpersoon"].value,
-  functietitel: form.elements["functietitel"].value,
-  standplaats: form.elements["standplaats"].value,
-  datum: form.elements["datum"].value,
-  copywriter: form.elements["copywriter"].value,
-  gotw: form.elements["gotw"].value,
-  intro: form.elements["intro"].value,
-  ditdoejebij: form.elements["ditdoejebij"].value,
-  pullfactoren: form.elements["pullfactoren"].value,
-  testquote: form.elements["testquote"].value,
-  testnaam: form.elements["testnaam"].value,
-  testfunctie: form.elements["testfunctie"].value,
-  functieeisen: form.elements["functieeisen"].value,
-  competenties: form.elements["competenties"].value,
 
-};
 
 // Variabelen voor gebruikersinput
 let functietitel = "";
@@ -285,7 +267,7 @@ function validate() {
 
 
 function generate() {
-  if (validate()) {
+  //if (validate()) {
 
   const table = new docx.Table({
     width: {
@@ -803,5 +785,4 @@ function generate() {
     saveAs(blob, ordernummer + ".docx");
     console.log("Document created successfully");
   });
-}
 }

@@ -70,6 +70,21 @@ form {
 	height: 192px;
 }
 
+.form-row {
+	display: flex;
+  }
+  
+  .form-col {
+	flex: 1;
+	margin-right: 10px; /* Optional: Add spacing between columns */
+	padding-bottom: 10px;
+  }
+  
+  .inputcss {
+	width: 100%;
+	box-sizing: border-box; /* Ensure the padding and border are included in the width */
+  }
+
 /*! form.css v1.0 | MIT License | https://www.javascripttutorial.net/ */
 
 .form small {
@@ -344,4 +359,16 @@ input[type="radio"] {
 
 .error {
 	color: #dc3545;
+}
+
+
+/* Checkbox css */ 
+.checkbox-wrapper {
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+.checkbox-input {
+	margin-right: 5px;
 }
