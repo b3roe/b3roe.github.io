@@ -372,3 +372,9 @@ input[type="radio"] {
 .checkbox-input {
 	margin-right: 5px;
 }
+
+.labeltag {
+	font-size: 15px;
+	text-decoration: underline;
+	padding-top: 10px;
+}

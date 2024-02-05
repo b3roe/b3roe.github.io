@@ -19,7 +19,8 @@
       <div class="container-fluid">
         <div id="form" class="form">
           <form>
-            <div class="form-row" id="Titel, afdeling, sector">
+            <div class="form-row">
+              <label class="labeltag">Titel, afdeling, sector</label>
               <div class="form-col">
                 <label for="sector">Kies sector van functie:</label>
                   <select id="sector" class="inputcss">
@@ -47,7 +48,8 @@
               </div>
             </div>
       
-            <div class="form-row" id="Intro en taken">
+            <div class="form-row">
+              <label class="labeltag">Intro en taken</label>
               <div class="form-col">
                 <label for="intro">Intro:</label>
                   <textarea id="intro" rows="5" class="inputcss"></textarea>
@@ -65,9 +67,10 @@
               </div>
             </div>
             
-            <div class="form-row" id="Functie keuzeteksten">
+            <div class="form-row">
+              <label class="labeltag">Functie keuzeteksten</label>
               <div class="form-col">
-                <label for="ktfi1">Functie-inhoud keuzetekst 1:</label>
+                <label for="ktfi1">Zo zorg jij voor...</label>
                   <select id="ktfi1" class="inputcss">
                       <!-- Empty default option -->
                       <option value="" disabled selected></option>
@@ -81,7 +84,7 @@
                 <small></small>
               </div>
               <div class="form-col">
-                <label for="ktfi2">Functie-inhoud keuzetekst 2:</label>
+                <label for="ktfi2">als...</label>
                   <select id="ktfi2" class="inputcss">
                       <!-- Empty default option -->
                       <option value="" disabled selected></option>
@@ -91,9 +94,10 @@
               </div>
             </div>
             
-            <div class="form-row" id="Over Capelle keuzeteksten">
+            <div class="form-row" id="capelle">
+              <label class="labeltag" for="capelle">Over Capelle keuzeteksten</label>
               <div class="form-col">
-                <label for="capellebullets1">Over Capelle keuzetekst 1:</label>
+                <label for="capellebullets1">Wist je trouwens dat...</label>
                   <select id="capellebullets1" class="inputcss">
                       <!-- Empty default option -->
                       <option value="" disabled selected></option>
@@ -115,7 +119,7 @@
                 <small></small>
               </div>
               <div class="form-col">
-                <label for="capellebullets2">Over Capelle keuzetekst 2:</label>
+                <label for="capellebullets2">en...</label>
                   <select id="capellebullets2" class="inputcss">
                       <!-- Empty default option -->
                       <option value="" disabled selected></option>
@@ -130,7 +134,8 @@
               </div>
             </div>
             
-            <div class="form-row" id="Collega's en quote">
+            <div class="form-row">
+              <label class="labeltag">Collega's en quote</label>
               <div class="form-col">
                 <label for="naamcollega1" data-toggle="tooltip" title="">Naam collega 1:</label>
                   <input type="text" id="naamcollega1" class="inputcss">
@@ -148,9 +153,10 @@
               </div>
             </div>
       
-            <div class="form-row" id="Afdeling keuzeteksten">
+            <div class="form-row">
+              <label class="labeltag">Afdeling keuzeteksten</label>
               <div class="form-col">
-                <label for="ktaf1">Afdeling keuzetekst 1:</label>
+                <label for="ktaf1">...is een talent dat jullie allemaal hebben.</label>
                   <select id="ktaf1" class="inputcss">
                       <!-- Empty default option -->
                       <option value="" disabled selected></option>
@@ -164,7 +170,7 @@
                 <small></small>
               </div>
               <div class="form-col">
-                <label for="ktaf2">Afdeling keuzetekst 2:</label>
+                <label for="ktaf2">Als collega van deze afdeling ben je lid van een...</label>
                   <select id="ktaf2" class="inputcss">
                       <!-- Empty default option -->
                       <option value="" disabled selected></option>
@@ -180,33 +186,31 @@
                 <small></small>
               </div>
               <div class="form-col">
-                <label for="ktaf1vb">Voorbeeld bij afdeling keuzetekst 1:</label>
+                <label for="ktaf1vb">Dat merk je vooral door...</label>
                   <textarea id="ktaf1vb" rows="5" class="inputcss"></textarea>
                 <small></small>
               </div>
             </div>
       
-            <div class="form-row" id="Skills en talent">
+            <div class="form-row">
+            <label class="labeltag">Skills en talent</label>
               <div class="form-col">
                 <label for="hardskills">Hardskills:</label>
                   <textarea id="hardskills" rows="5" class="inputcss"></textarea>
                 <small></small>
               </div>
               <div class="form-col">
-                <label for="talentkeuze">Talent keuzetekst</label>
+                <label for="talentkeuze">Samen werken aan een inclusieve samenleving. Dat doe je met jouw...</label>
                   <select id="talentkeuze" class="inputcss">
                       <!-- Empty default option -->
                       <option value="" disabled selected></option>
-                      <!-- Options -->
-                      <option value=""></option>
-                      <option value=""></option>
-                      <option value=""></option>
                   </select>
                 <small></small>
               </div>
             </div>
       
-            <div class="form-row" id="Arbeidsvoorwaarden">
+            <div class="form-row">
+              <label class="labeltag">Arbeidsvoorwaarden</label>
               <div class="form-col">
                 <label for="voorwaardenbullets">Arbeidsvoorwaarden:</label>
                   <div class="row">
@@ -300,7 +304,8 @@
               </div>
             </div>
       
-            <div class="form-row" id="Salaris, schaal, sluitingsdatum">
+            <div class="form-row">
+              <label class="labeltag">Salaris, schaal, sluitingsdatum</label>
               <div class="form-col">
                 <label for="salaris" data-toggle="tooltip" title="">Salaris tot:</label>
                   <input type="text" id="salaris" class="inputcss">
@@ -318,7 +323,8 @@
               </div>
             </div>
       
-            <div class="form-row" id="Vacaturehouder">
+            <div class="form-row">
+              <label class="labeltag">Vacaturehouder</label>
               <div class="form-col">
                 <label for="naamvacaturehouder" data-toggle="tooltip" title="">Naam vacaturehouder:</label>
                   <input type="text" id="naamvacaturehouder" class="inputcss">
@@ -341,7 +347,8 @@
               </div>
             </div>
       
-            <div class="form-row" id="Recruiter">
+            <div class="form-row">
+              <label class="labeltag">Recruiter</label>
               <div class="form-col">
                 <label for="naamrecruiter" data-toggle="tooltip" title="">Naam recruiter</label>
                   <input type="text" id="naamrecruiter" class="inputcss">

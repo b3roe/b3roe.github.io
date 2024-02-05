@@ -21,7 +21,6 @@ const quotecollegaInput = document.querySelector("#quotecollega");
 const ktaf1Input = document.querySelector("#ktaf1");
 const ktaf1vbInput = document.querySelector("#ktaf1vb");
 const ktaf2Input = document.querySelector("#ktaf2");
-const metvoorInput = document.querySelector("#metvoor");
 const salarisInput = document.querySelector("#salaris");
 const schaalInput = document.querySelector("#schaal");
 const hardskillsInput = document.querySelector("#hardskills");
@@ -48,7 +47,6 @@ let quotecollega = "'quote van 1 van de 2 collega's'";
 let ktaf1 = "[Keuzetekst 1 afdeling]";
 let ktaf1vb = "[licht met een voorbeeld keuzetekst 1 beter toe. Gebruik hier maximaal 2 zinnen voor. Elke zin bevat maximaal 15 woorden]";
 let ktaf2 = "[keuzetekst 2 afdeling]";
-let metvoor = "door/met";
 let salaris = "[brutomaandsalaris]";
 let schaal = "[nummer]]";
 let hardskills = "[hardskill. Min. 3, max. 5 bulletpoints. Blijf weg bij pre en talenten of competenties. Max. 150 tekens per opsomming. Let erop dat het max. 15 woorden per zinsdeel zijn]";
@@ -190,6 +188,7 @@ function updateTalentkeuzeOptions() {
   }
 }
 
+
 // Event listeners
 sector.addEventListener("change", (event) => {
   ktfi2 = ktfi2Input.value;
@@ -209,6 +208,14 @@ functietitelInput.addEventListener("input", (event) => {
 
 ktfi1Input.addEventListener("input", (event) => {
   ktfi1 = event.target.value.trim();
+});
+
+ktfi2Input.addEventListener("input", (event) => {
+  ktfi2 = event.target.value.trim();
+});
+
+talentkeuzeInput.addEventListener("input", (event) => {
+  talentkeuze = event.target.value.trim();
 });
 
 hoofdtaakInput.addEventListener("input", (event) => {
@@ -255,10 +262,6 @@ ktaf2Input.addEventListener("input", (event) => {
   ktaf2 = event.target.value.trim();
 });
 
-metvoorInput.addEventListener("input", (event) => {
-  metvoor = event.target.value.trim();
-});
-
 salarisInput.addEventListener("input", (event) => {
   salaris = event.target.value.trim();
 });
@@ -269,10 +272,6 @@ schaalInput.addEventListener("input", (event) => {
 
 hardskillsInput.addEventListener("input", (event) => {
   hardskills = event.target.value.trim();
-});
-
-voorwaardenbulletsInput.addEventListener("input", (event) => {
-  voorwaardenbullets = event.target.value.trim();
 });
 
 sluitingsdatumInput.addEventListener("input", (event) => {
@@ -309,22 +308,6 @@ emailrecruiterInput.addEventListener("input", (event) => {
 
 telrecruiterInput.addEventListener("input", (event) => {
   telrecruiter = event.target.value.trim();
-});
-
-document.querySelectorAll('.checkbox-input').forEach(checkbox => {
-  checkbox.addEventListener('change', function () {
-    const value = this.value;
-
-    // Check if the checkbox is checked and add/remove value from the array
-    if (this.checked) {
-      checkedValues.push(value);
-    } else {
-      checkedValues = checkedValues.filter(item => item !== value);
-    }
-
-    // Update the list based on the checked values
-    updateList();
-  });
 });
 
 function generate() {
@@ -446,6 +429,7 @@ const abvBullets = checkedValues.map(value => {
         new docx.Paragraph({
           spacing: {
             before: 200,
+            after: 200,
         },
           children: [
             new docx.TextRun({
@@ -455,7 +439,7 @@ const abvBullets = checkedValues.map(value => {
               size: 20,
             }),
             new docx.TextRun({
-              text: "er áltijd draagvlak is voor een goed plan. Zo zorg jij voor " + ktfi1 + " als " + ktfi2 + functietitel + ". " + hoofdtaak + ". Verder houd jij je bezig met het:",
+              text: "er áltijd draagvlak is voor een goed plan. Zo zorg jij voor " + ktfi1 + " als " + ktfi2 + " " + functietitel + ". " + hoofdtaak + ". Verder houd jij je bezig met het:",
               bold: false,
               font: "Calibri",
               size: 20,
@@ -490,6 +474,9 @@ const abvBullets = checkedValues.map(value => {
 
         new docx.Paragraph({
           bullet: { level: 0 },
+          spacing: {
+            before: 200,
+          },
           children: [
             new docx.TextRun({
               text: capellebullets1,
@@ -557,6 +544,7 @@ const abvBullets = checkedValues.map(value => {
         new docx.Paragraph({
           spacing: {
             before: 200,
+            after: 200,
         },
           children: [
             new docx.TextRun({
@@ -566,7 +554,7 @@ const abvBullets = checkedValues.map(value => {
               size: 20,
             }),
             new docx.TextRun({
-              text: "Iedereen heeft talenten en bij Capelle kan en mag je die altijd inzetten. Zo werken we samen aan een inclusieve samenleving. Dat doe je " + metvoor + " jouw " + talentkeuze + ". Verder heb je:",
+              text: "Iedereen heeft talenten en bij Capelle kan en mag je die altijd inzetten. Zo werken we samen aan een inclusieve samenleving. Dat doe je met jouw " + talentkeuze + " Verder heb je:",
               bold: false,
               font: "Calibri",
               size: 20,
@@ -589,15 +577,20 @@ const abvBullets = checkedValues.map(value => {
               font: "Calibri",
               size: 20,
             }),
+          ],
+          }),
+          new docx.Paragraph({
+            bullet: { level: 0 },
+            children: [
             new docx.TextRun({
               text: "tot € " + salaris + " bruto per maand inclusief 17,05% IKB (schaal " + schaal + ").",
               bold: false,
               font: "Calibri",
               size: 20,
-              break: 1,
             }),
           ],
         }),
+
         ...abvBullets,
 
 //Daadkracht begint hier
